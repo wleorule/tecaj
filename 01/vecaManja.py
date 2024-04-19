@@ -12,7 +12,7 @@ popisBrojeva.append(random.randint(0,9))
 # While petlja tako da se igra nastavlja za stalno
 while nastaviIgru: 
     # Očisti sve ispisano u prozoru Windows = CLS, Linux/Macos = CLEAR 
-    os.system('cls') 
+    os.system('clear') 
     noviBroj = random.randint(0,9)
     rezultat = "I"
     # Dohvati zadnji broj s liste brojeva (prvi put će to biti broj dodan na liniji 10)
