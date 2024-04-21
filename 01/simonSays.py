@@ -58,6 +58,7 @@ def promjesajKarte():
             uzetaKarta[novaKarta] = True
 
 def ispisi(ploca): 
+    os.system('clear') 
     for brojac in range(0,16): 
         print(ploca[brojac], end=" ")
         brojZaProvjeru = brojac + 1
@@ -66,17 +67,38 @@ def ispisi(ploca):
 
 okrenutaKarta = "❓"
 trenutnaIgra = [okrenutaKarta,okrenutaKarta,okrenutaKarta,okrenutaKarta,okrenutaKarta,okrenutaKarta,okrenutaKarta,okrenutaKarta,okrenutaKarta,okrenutaKarta,okrenutaKarta,okrenutaKarta,okrenutaKarta,okrenutaKarta,okrenutaKarta,okrenutaKarta]
-    
+
+rezultat = [0,0]
+trenutniIgrac = 0
+
 def igrajMemory(): 
     ispisi(trenutnaIgra)
     prvaKarta = input("Odaberi prvu kartu: ")
-    redPrveKarte = 
-    stupacPrveKarte = 
-
-
-    drugaKara = input("Odaberi drugu kartu: ")
+    redPrveKarte = int(prvaKarta.split(".")[0])
+    stupacPrveKarte = int(prvaKarta.split(".")[1])
+    odabranaPrvaKarta = ((redPrveKarte - 1) * 4) + (stupacPrveKarte - 1)
+    trenutnaIgra[odabranaPrvaKarta] = promjesaneKarte[odabranaPrvaKarta]
+    ispisi(trenutnaIgra)
+    
+    drugaKarta = input("Odaberi drugu kartu: ")
+    redDrugeKarte = int(drugaKarta.split(".")[0])
+    stupacDrugeKarte = int(drugaKarta.split(".")[1])
+    odabranaDrugaKarta = ((redDrugeKarte - 1) * 4) + (stupacDrugeKarte - 1)
+    trenutnaIgra[odabranaDrugaKarta] = promjesaneKarte[odabranaDrugaKarta]
+    ispisi(trenutnaIgra)
+    time.sleep(1)
+    if promjesaneKarte[odabranaDrugaKarta] == promjesaneKarte[odabranaPrvaKarta]:
+        rezultat[trenutniIgrac] = rezultat[trenutniIgrac] + 1
+        trenutnaIgra[odabranaDrugaKarta] = "✅"
+        trenutnaIgra[odabranaPrvaKarta] = "✅"
+    else: 
+        trenutnaIgra[odabranaDrugaKarta] = "❓"
+        trenutnaIgra[odabranaPrvaKarta] = "❓"
+    igrajMemory()
+    
     #red.stupac
-    #3.2
+    #3.2.split(".")
+    #["3", "2"]
 
 
 
