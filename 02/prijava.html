@@ -51,12 +51,28 @@
     <div class="desno">
       <div id="forma">
         <h1>PRIJAVA</h1>
-        <form>
-          <input class="unos" type="text" />
-          <input class="unos" type="text" />
-          <button id="prijava">PRIJAVI SE</button>
-        </form>
+
+        <input
+          id="username"
+          class="unos"
+          placeholder="Korisnicko ime"
+          type="text"
+        />
+        <input id="sifra" class="unos" placeholder="Šifra" type="text" />
+        <button id="prijava" onclick="prijava()">PRIJAVI SE</button>
       </div>
     </div>
   </body>
 </html>
+<script>
+  function prijava() {
+    var username = document.getElementById("username");
+    var sifra = document.getElementById("sifra");
+
+    if (username.value == "Leo" && sifra.value == "Prva") {
+      alert("Uspjesna prijava!");
+    } else {
+      alert("Ne uspjesna prijava!");
+    }
+  }
+</script>

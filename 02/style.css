@@ -17,6 +17,9 @@ body {
 .desno {
   width: 70%;
   height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #gornji {

@@ -1,0 +1,62 @@
+#igra {
+  display: block;
+  width: 200px;
+}
+
+.box {
+  width: 100px;
+  height: 100px;
+  float: left;
+}
+
+.red {
+  background: rgba(231, 76, 60, 1);
+}
+
+.red-activated {
+  background: rgb(52, 152, 219);
+  background: radial-gradient(
+    circle,
+    rgba(231, 76, 60, 0.5214460784313726) 0%,
+    rgba(231, 76, 60, 1) 100%
+  );
+}
+
+.green {
+  background: rgba(46, 204, 113, 1);
+}
+
+.green-activated {
+  background: rgb(52, 152, 219);
+  background: radial-gradient(
+    circle,
+    rgba(46, 204, 113, 0.5214460784313726) 0%,
+    rgba(46, 204, 113, 1) 100%
+  );
+}
+
+.blue {
+  background: rgba(52, 152, 219, 1);
+}
+
+.blue-activated {
+  background: rgb(52, 152, 219);
+  background: radial-gradient(
+    circle,
+    rgba(52, 152, 219, 0.5214460784313726) 0%,
+    rgba(52, 152, 219, 1) 100%
+  );
+}
+
+.yellow {
+  background: rgba(241, 196, 15, 1);
+}
+
+.yellow-activated {
+  background: rgb(52, 152, 219);
+  background: radial-gradient(
+    circle,
+    rgba(241, 196, 15, 0.5214460784313726) 0%,
+    rgba(241, 196, 15, 1) 100%
+  );
+}
