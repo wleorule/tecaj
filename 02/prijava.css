@@ -1,0 +1,48 @@
+.desno {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.desno #forma {
+  display: flex;
+  flex-direction: column;
+
+  gap: 14px;
+}
+
+.desno #forma h1 {
+  letter-spacing: 30px;
+  text-align: center;
+}
+
+input {
+  padding: 10px 18px 10px 18px; /* top right bottom left */
+  background: rgba(
+    0,
+    0,
+    0,
+    0
+  ); /* zadnja nula je opacity (prozirnost) postotak od 1 do 0 gdje je 1 = 100% 0 = 0%  */
+  border: 1px solid #8e44ad;
+  border-radius: 40px;
+  height: 40px;
+  line-height: 40px;
+  color: #8e44ad;
+}
+
+button {
+  padding: 14px 24px 14px 24px; /* top right bottom left */
+  background: rgba(142, 68, 173, 0.7);
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: lighter;
+  border: 0;
+  border-radius: 40px;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+button:hover {
+  background: rgb(142, 68, 173, 1);
+}
