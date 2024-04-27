@@ -4,6 +4,8 @@ body {
   margin: 0;
   background-image: url(img/background.jpg);
   background-size: cover;
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
 }
 
 #lijevo {
@@ -18,12 +20,11 @@ body {
   width: 70%;
   height: 100vh;
   display: flex;
-  justify-content: center;
-  align-items: center;
+
   flex-direction: column;
 }
 
-#gornji {
+.gornji {
   width: 100%;
   height: 100px;
   border-bottom: 1px solid rgba(33, 2, 63, 0.2);
@@ -32,19 +33,19 @@ body {
   align-items: center;
 }
 
-#gornji h1 {
+.gornji h1 {
   font-family: "Montserrat", sans-serif;
   color: rgba(33, 2, 63, 0.35);
   font-size: 50px;
 }
 
-#donji {
+.donji {
   display: flex;
   flex-direction: column;
   gap: 24px;
   padding-top: 24px;
 }
-#donji a {
+.donji a {
   font-size: 24px;
   font-family: "Inter", sans-serif;
   font-weight: lighter;
@@ -57,8 +58,23 @@ body {
   align-items: center;
 }
 
-#donji a .item {
+.donji a .item {
   display: flex;
   gap: 24px;
   width: 80%;
+}
+
+.button-outlined {
+  font-family: "Inter", sans-serif;
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  font-size: 16px;
+  text-transform: uppercase;
+  border: 1px solid #8e44ad;
+  color: #8e44ad;
+  font-weight: bold;
+  background-color: white;
+  border-radius: 24px;
 }

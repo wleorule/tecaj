@@ -60,3 +60,23 @@
     rgba(241, 196, 15, 1) 100%
   );
 }
+
+.desno .gornji h1 {
+  color: #444;
+  letter-spacing: 18px;
+}
+
+.desno .donji {
+  display: flex;
+  flex-direction: column;
+  gap: 24;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 101px);
+}
+
+#score {
+  font-size: 32px;
+  font-weight: lighter;
+  text-transform: uppercase;
+}

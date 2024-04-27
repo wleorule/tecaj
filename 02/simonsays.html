@@ -25,13 +25,15 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+
+    <script src="simonsays.js"></script>
   </head>
   <body>
     <div id="lijevo">
-      <div id="gornji">
+      <div class="gornji">
         <h1>IGRICE</h1>
       </div>
-      <div id="donji">
+      <div class="donji">
         <a href="simonsays.html"
           ><div class="item">
             <i class="fa fa-bullhorn" aria-hidden="true"></i> Simon says
@@ -50,99 +52,26 @@
       </div>
     </div>
     <div class="desno">
-      <div id="score">Score: 0</div>
-      <button onclick="igraj()">Igraj</button>
-      <div id="igra">
-        <div id="box1" class="box red" onclick="stisnutaKutijica(1)"></div>
-        <div id="box2" class="box green" onclick="stisnutaKutijica(2)"></div>
-        <br />
-        <div id="box3" class="box blue" onclick="stisnutaKutijica(3)"></div>
-        <div id="box4" class="box yellow" onclick="stisnutaKutijica(4)"></div>
+      <div class="gornji">
+        <h1>SIMON SAYS</h1>
+      </div>
+      <div class="donji">
+        <div id="score">Score: 0</div>
+        <div>
+          <button onclick="igraj()" class="button-outlined">Igraj</button>
+          <button onclick="igrajHC()" class="button-outlined">Igraj x8</button>
+        </div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div id="igra">
+          <div id="box1" class="box red" onclick="stisnutaKutijica(1)"></div>
+          <div id="box2" class="box green" onclick="stisnutaKutijica(2)"></div>
+          <br />
+          <div id="box3" class="box blue" onclick="stisnutaKutijica(3)"></div>
+          <div id="box4" class="box yellow" onclick="stisnutaKutijica(4)"></div>
+        </div>
       </div>
     </div>
   </body>
 </html>
-
-<script>
-  var listaBrojeva = [];
-  var nastaviIgru = true;
-  var trenutnoPrikazujem = false;
-
-  function getRandomInt(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-  }
-
-  const delay = (millis) =>
-    new Promise((resolve, reject) => {
-      setTimeout((_) => resolve(), millis);
-    });
-
-  async function igraj() {
-    trenutnoPrikazujem = true;
-    // 1. Generiraj novi broj i stavi ga u listu brojeva
-    var noviBroj = getRandomInt(1, 4);
-
-    listaBrojeva.push(noviBroj);
-    // 2. Ispisi sve brojeve iz liste
-    for (var i = 0; i < listaBrojeva.length; i++) {
-      var broj = listaBrojeva[i];
-      var kutija = document.getElementById("box" + broj);
-
-      kutija.classList.remove(vratiBoju(broj));
-      kutija.classList.add(vratiBoju(broj) + "-activated");
-      await delay(1500);
-      kutija.classList.remove(vratiBoju(broj) + "-activated");
-      kutija.classList.add(vratiBoju(broj));
-      await delay(500);
-    }
-    trenutnoPrikazujem = false;
-  }
-
-  function vratiBoju(brojKutije) {
-    if (brojKutije == 1) {
-      return "red";
-    }
-
-    if (brojKutije == 2) {
-      return "green";
-    }
-
-    if (brojKutije == 3) {
-      return "blue";
-    }
-
-    if (brojKutije == 4) {
-      return "yellow";
-    }
-  }
-
-  var trenutniBroj = 0;
-  async function stisnutaKutijica(brojKutije) {
-    if (trenutnoPrikazujem == false) {
-      var kutija = document.getElementById("box" + brojKutije);
-      kutija.classList.remove(vratiBoju(brojKutije));
-      kutija.classList.add(vratiBoju(brojKutije) + "-activated");
-      await delay(500);
-      kutija.classList.remove(vratiBoju(brojKutije) + "-activated");
-      kutija.classList.add(vratiBoju(brojKutije));
-      await delay(500);
-      var brojIzListe = listaBrojeva[trenutniBroj];
-
-      if (brojIzListe == brojKutije) {
-        trenutniBroj = trenutniBroj + 1;
-        //trenutniBroj++;
-
-        if (trenutniBroj == listaBrojeva.length) {
-          igraj();
-          trenutniBroj = 0;
-        }
-      } else {
-        alert("Fulao si");
-        listaBrojeva = [];
-        trenutniBroj = 0;
-      }
-    }
-  }
-</script>
