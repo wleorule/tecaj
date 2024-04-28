@@ -56,6 +56,11 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  color: #5a5a5e;
+}
+
+.donji a.active {
+  color: #8e44ad;
 }
 
 .donji a .item {

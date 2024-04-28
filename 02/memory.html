@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Memory</title>
+
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="memory.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <script src="memory.js"></script>
+  </head>
+  <body>
+    <div id="lijevo">
+      <div class="gornji">
+        <h1>IGRICE</h1>
+      </div>
+      <div class="donji">
+        <a href="simonsays.html"
+          ><div class="item">
+            <i class="fa fa-bullhorn" aria-hidden="true"></i> Simon says
+          </div>
+        </a>
+        <a href="memory.html" class="active"
+          ><div class="item">
+            <i class="fa fa-check-square" aria-hidden="true"></i> Memory
+          </div>
+        </a>
+        <a href=""
+          ><div class="item">
+            <i class="fa fa-table" aria-hidden="true"></i> Tic tac toe
+          </div></a
+        >
+      </div>
+    </div>
+    <div class="desno">
+      <div class="gornji">
+        <h1>MEMORY</h1>
+      </div>
+      <div class="donji">
+        <h3 id="scoreboard"></h3>
+        <button class="button-outlined" onclick="igraj()">IGRAJ</button>
+        <div class="ploca">
+          <div class="karta" onclick="okreni(0)">
+            <div class="lice"></div>
+            <div class="pozadina"></div>
+          </div>
+          <div class="karta" onclick="okreni(1)">
+            <div class="lice"></div>
+            <div class="pozadina"></div>
+          </div>
+          <div class="karta" onclick="okreni(2)">
+            <div class="lice"></div>
+            <div class="pozadina"></div>
+          </div>
+          <div class="karta" onclick="okreni(3)">
+            <div class="lice"></div>
+            <div class="pozadina"></div>
+          </div>
+          <div class="karta" onclick="okreni(4)">
+            <div class="lice"></div>
+            <div class="pozadina"></div>
+          </div>
+          <div class="karta" onclick="okreni(5)">
+            <div class="lice"></div>
+            <div class="pozadina"></div>
+          </div>
+          <div class="karta" onclick="okreni(6)">
+            <div class="lice"></div>
+            <div class="pozadina"></div>
+          </div>
+          <div class="karta" onclick="okreni(7)">
+            <div class="lice"></div>
+            <div class="pozadina"></div>
+          </div>
+          <div class="karta" onclick="okreni(8)">
+            <div class="lice"></div>
+            <div class="pozadina"></div>
+          </div>
+          <div class="karta" onclick="okreni(9)">
+            <div class="lice"></div>
+            <div class="pozadina"></div>
+          </div>
+          <div class="karta" onclick="okreni(10)">
+            <div class="lice"></div>
+            <div class="pozadina"></div>
+          </div>
+          <div class="karta" onclick="okreni(11)">
+            <div class="lice"></div>
+            <div class="pozadina"></div>
+          </div>
+          <div class="karta" onclick="okreni(12)">
+            <div class="lice"></div>
+            <div class="pozadina"></div>
+          </div>
+          <div class="karta" onclick="okreni(13)">
+            <div class="lice"></div>
+            <div class="pozadina"></div>
+          </div>
+          <div class="karta" onclick="okreni(14)">
+            <div class="lice"></div>
+            <div class="pozadina"></div>
+          </div>
+          <div class="karta" onclick="okreni(15)">
+            <div class="lice"></div>
+            <div class="pozadina"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+<script>
+  const delay = (millis) =>
+    new Promise((resolve, reject) => {
+      setTimeout((_) => resolve(), millis);
+    });
+
+  var karte = [
+    "👋",
+    "👋",
+    "🤖",
+    "🤖",
+    "💡",
+    "💡",
+    "😉",
+    "😉",
+    "🔥",
+    "🔥",
+    "👀",
+    "👀",
+    "🌍",
+    "🌍",
+    "🍺",
+    "🍺",
+  ];
+  var popisPromjesanihKarata = [];
+
+  var trenutniIgrac = 0;
+  var score = [0, 0];
+
+  function igraj() {
+    promjesajKarte();
+    trenutniIgrac = 0;
+    score = [0, 0];
+    azurirajRezultat();
+
+    okrenute = [];
+    var karte = document.getElementsByClassName("karta");
+
+    for (var i = 0; i < 16; i++) {
+      karte[i].classList.remove("prazna");
+      karte[i].classList.remove("okreni");
+    }
+  }
+
+  function azurirajRezultat() {
+    document.getElementById("scoreboard").innerHTML =
+      "Igrač 1: " + score[0] + "  | Igrač 2: " + score[1];
+  }
+
+  function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+  function promjesajKarte() {
+    popisPromjesanihKarata = [];
+    uzeteKarte = [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+    ];
+
+    while (popisPromjesanihKarata.length < 16) {
+      var broj = getRandomInt(0, 15);
+      if (!uzeteKarte[broj]) {
+        popisPromjesanihKarata.push(karte[broj]);
+        uzeteKarte[broj] = true;
+      }
+    }
+
+    for (var i = 0; i < 16; i++) {
+      document.getElementsByClassName("lice")[i].innerHTML =
+        popisPromjesanihKarata[i];
+    }
+  }
+
+  var okrenute = [];
+
+  async function okreni(broj) {
+    if (okrenute.length < 2) {
+      okrenute.push(broj);
+      document.getElementsByClassName("karta")[broj].classList.add("okreni");
+
+      if (okrenute.length == 2) {
+        await delay(1200);
+        var prva = document.getElementsByClassName("karta")[okrenute[0]];
+        var druga = document.getElementsByClassName("karta")[okrenute[1]];
+        if (prva.innerHTML == druga.innerHTML) {
+          prva.classList.add("prazna");
+          druga.classList.add("prazna");
+
+          score[trenutniIgrac]++;
+          azurirajRezultat();
+        } else {
+          prva.classList.remove("okreni");
+          document;
+          druga.classList.remove("okreni");
+        }
+        if (trenutniIgrac == 0) trenutniIgrac = 1;
+        else if (trenutniIgrac == 1) trenutniIgrac = 0;
+        okrenute = [];
+      }
+    }
+  }
+</script>
