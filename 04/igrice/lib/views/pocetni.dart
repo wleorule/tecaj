@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:igrice/views/simon_says.dart';
 
 class PocetniEkran extends StatelessWidget {
   const PocetniEkran({super.key});
@@ -38,7 +39,13 @@ class PocetniEkran extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               TextButton(
-                  onPressed: () => print(1),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const SimonSays()),
+                    );
+                  },
                   child: const Text(
                     "Simon says",
                     style: TextStyle(fontSize: 18),
