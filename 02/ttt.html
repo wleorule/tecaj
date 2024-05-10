@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document - 01</title>
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="prijava.css" />
+    <link rel="stylesheet" href="ttt.css" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -25,6 +25,8 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+
+    <script src="simonsays.js"></script>
   </head>
   <body>
     <div id="lijevo">
@@ -42,7 +44,7 @@
             <i class="fa fa-check-square" aria-hidden="true"></i> Memory
           </div>
         </a>
-        <a href="ttt.html"
+        <a href="ttt.html" class="active"
           ><div class="item">
             <i class="fa fa-table" aria-hidden="true"></i> Tic tac toe
           </div></a
@@ -50,32 +52,22 @@
       </div>
     </div>
     <div class="desno">
-      <div id="forma">
-        <h1>PRIJAVA</h1>
-
-        <input
-          id="username"
-          class="unos"
-          placeholder="Korisnicko ime"
-          type="text"
-        />
-        <input id="sifra" class="unos" placeholder="Šifra" type="text" />
-        <button id="prijava" onclick="prijava()">PRIJAVI SE</button>
+      <div class="gornji">
+        <h1>Tic Tac Toe</h1>
+      </div>
+      <div class="donji">
+        <div class="ploca">
+          <div class="kocka border-right border-bottom">X</div>
+          <div class="kocka border-right border-bottom"></div>
+          <div class="kocka border-bottom"></div>
+          <div class="kocka border-bottom border-right">O</div>
+          <div class="kocka border-bottom border-right"></div>
+          <div class="kocka border-bottom"></div>
+          <div class="kocka border-right"></div>
+          <div class="kocka border-right"></div>
+          <div class="kocka"></div>
+        </div>
       </div>
     </div>
   </body>
 </html>
-<script>
-  function prijava() {
-    var username = document.getElementById("username");
-    var sifra = document.getElementById("sifra");
-
-    if (username.value == "Leo" && sifra.value == "Prva") {
-      alert("Uspjesna prijava!");
-    } else {
-      alert("Ne uspjesna prijava!");
-    }
-  }
-</script>
-
-<!-- github.com/wleorule/tecaj -->

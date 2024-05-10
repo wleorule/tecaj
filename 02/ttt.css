@@ -1,0 +1,30 @@
+.desno .donji {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ploca {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 460px;
+}
+
+.kocka {
+  width: 150px;
+  height: 150px;
+  box-sizing: content-box;
+  font-size: 100px;
+  text-align: center;
+  line-height: 150px;
+  font-family: "Inter", sans-serif;
+}
+
+.border-right {
+  border-right: 1px solid black;
+}
+
+.border-bottom {
+  border-bottom: 1px solid black;
+}
